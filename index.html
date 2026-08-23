@@ -19,6 +19,8 @@
     --green-dim: #DFEEE4;
     --amber: #C97A2B;
     --amber-dim: #F5E6D3;
+    --red: #B5484A;
+    --red-dim: #F3DEDE;
     --line: #D9DBD4;
     --white: #FFFFFF;
     --radius: 3px;
@@ -244,6 +246,38 @@
   .cert-name{ flex:1; }
   .cert-issuer{ color: var(--ink-soft); font-size: 12.5px; font-family:'IBM Plex Mono', monospace; }
 
+  /* ---------- LeetCode dashboard ---------- */
+  .lc-dash{
+    border: 1px solid var(--line); border-radius: 5px; background: var(--white); overflow: hidden;
+  }
+  .lc-dash-head{
+    font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint);
+    padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--bg-panel);
+    display:flex; justify-content: space-between; align-items:center;
+  }
+  .lc-dash-head a{ color: var(--ink-faint); font-size: 12px; }
+  .lc-dash-body{ padding: 20px; }
+  .lc-top{ display:flex; align-items:baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  .lc-total{ font-family:'IBM Plex Mono', monospace; font-weight:700; font-size: 34px; color: var(--ink); }
+  .lc-total-label{ font-size: 12.5px; color: var(--ink-soft); }
+  .lc-chip-row{ display:flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+  .lc-chip{
+    font-family:'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
+    background: var(--bg-panel); border:1px solid var(--line); padding: 4px 9px; border-radius: 3px;
+  }
+  .lc-bars{ display:flex; flex-direction: column; gap: 12px; }
+  .lc-bar-row{ display:flex; align-items:center; gap: 12px; }
+  .lc-bar-label{ font-family:'IBM Plex Mono', monospace; font-size: 12px; width: 64px; flex-shrink:0; }
+  .lc-bar-track{ flex:1; height: 8px; background: var(--bg-panel); border-radius: 4px; overflow:hidden; }
+  .lc-bar-fill{ height:100%; border-radius: 4px; width: 0%; transition: width 0.8s ease; }
+  .lc-bar-fill.easy{ background: var(--green); }
+  .lc-bar-fill.medium{ background: var(--amber); }
+  .lc-bar-fill.hard{ background: var(--red); }
+  .lc-bar-count{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); width: 76px; text-align:right; flex-shrink:0; }
+  .lc-status{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); margin-top: 14px; }
+  .lc-fallback{ font-size: 14px; color: var(--ink-soft); }
+  .lc-fallback a{ color: var(--accent); }
+
   /* ---------- Footer ---------- */
   footer{ margin-top: 70px; border-top: 1px solid var(--line); padding: 28px 0 50px; }
   .footer-inner{ display:flex; justify-content: space-between; align-items:center; flex-wrap: wrap; gap: 14px; }
@@ -268,6 +302,7 @@
       <a href="#projects">projects</a>
       <a href="#skills">skills</a>
       <a href="#education">education</a>
+      <a href="#leetcode">leetcode</a>
       <a href="#contact">contact</a>
     </nav>
   </div>
@@ -292,6 +327,7 @@
       <a class="btn primary" href="mailto:pavani10112004@gmail.com">✉ Get in touch</a>
       <a class="btn" href="https://github.com/Pavani-A" target="_blank" rel="noopener">⌥ GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/pavani-a-/" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="btn" href="https://leetcode.com/u/PavaniAvula/" target="_blank" rel="noopener">◆ LeetCode</a>
     </div>
 
     <div class="stats reveal">
@@ -558,12 +594,54 @@
     </div>
   </section>
 
+  <section class="section" id="leetcode">
+    <div class="section-head">
+      <span class="section-tag">06</span>
+      <h2 class="section-title">LeetCode</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="lc-dash reveal">
+      <div class="lc-dash-head">
+        <span>$ curl leetcode.com/u/PavaniAvula --stats</span>
+        <a href="https://leetcode.com/u/PavaniAvula/" target="_blank" rel="noopener">view profile ↗</a>
+      </div>
+      <div class="lc-dash-body" id="lc-body">
+        <div class="lc-top">
+          <div>
+            <div class="lc-total" id="lc-total">—</div>
+            <div class="lc-total-label">problems solved</div>
+          </div>
+          <div class="lc-chip-row" id="lc-chips"></div>
+        </div>
+        <div class="lc-bars" id="lc-bars">
+          <div class="lc-bar-row">
+            <span class="lc-bar-label">Easy</span>
+            <div class="lc-bar-track"><div class="lc-bar-fill easy" id="lc-bar-easy"></div></div>
+            <span class="lc-bar-count" id="lc-count-easy">–</span>
+          </div>
+          <div class="lc-bar-row">
+            <span class="lc-bar-label">Medium</span>
+            <div class="lc-bar-track"><div class="lc-bar-fill medium" id="lc-bar-medium"></div></div>
+            <span class="lc-bar-count" id="lc-count-medium">–</span>
+          </div>
+          <div class="lc-bar-row">
+            <span class="lc-bar-label">Hard</span>
+            <div class="lc-bar-track"><div class="lc-bar-fill hard" id="lc-bar-hard"></div></div>
+            <span class="lc-bar-count" id="lc-count-hard">–</span>
+          </div>
+        </div>
+        <div class="lc-status" id="lc-status">fetching live stats…</div>
+      </div>
+    </div>
+  </section>
+
   <footer id="contact">
     <div class="footer-inner">
       <div class="footer-links mono">
         <a href="mailto:pavani10112004@gmail.com">Email</a>
         <a href="https://github.com/Pavani-A" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/pavani-a-/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://leetcode.com/u/PavaniAvula/" target="_blank" rel="noopener">LeetCode</a>
       </div>
       <div class="footer-note">git commit -m "always shipping" · Bengaluru, India</div>
     </div>
@@ -579,6 +657,56 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+
+  // ---------- LeetCode live stats ----------
+  (async function loadLeetCodeStats(){
+    const username = "PavaniAvula";
+    const statusEl = document.getElementById('lc-status');
+    const totalEl = document.getElementById('lc-total');
+    const chipsEl = document.getElementById('lc-chips');
+    const bodyEl = document.getElementById('lc-body');
+
+    function showFallback(){
+      bodyEl.innerHTML =
+        '<div class="lc-fallback">Live stats are unavailable right now — ' +
+        '<a href="https://leetcode.com/u/' + username + '/" target="_blank" rel="noopener">view the profile directly on LeetCode ↗</a></div>';
+    }
+
+    try{
+      const res = await fetch('https://alfa-leetcode-api.onrender.com/' + username + '/solved');
+      if(!res.ok) throw new Error('bad response');
+      const data = await res.json();
+
+      const easy = data.easySolved ?? 0;
+      const medium = data.mediumSolved ?? 0;
+      const hard = data.hardSolved ?? 0;
+      const total = data.solvedProblem ?? (easy + medium + hard);
+      const totalEasy = data.totalEasy ?? Math.max(easy, 1);
+      const totalMedium = data.totalMedium ?? Math.max(medium, 1);
+      const totalHard = data.totalHard ?? Math.max(hard, 1);
+
+      totalEl.textContent = total;
+
+      document.getElementById('lc-count-easy').textContent = easy + (totalEasy ? ' / ' + totalEasy : '');
+      document.getElementById('lc-count-medium').textContent = medium + (totalMedium ? ' / ' + totalMedium : '');
+      document.getElementById('lc-count-hard').textContent = hard + (totalHard ? ' / ' + totalHard : '');
+
+      requestAnimationFrame(() => {
+        document.getElementById('lc-bar-easy').style.width = Math.min(100, (easy / totalEasy) * 100) + '%';
+        document.getElementById('lc-bar-medium').style.width = Math.min(100, (medium / totalMedium) * 100) + '%';
+        document.getElementById('lc-bar-hard').style.width = Math.min(100, (hard / totalHard) * 100) + '%';
+      });
+
+      let chips = '';
+      if(data.acceptanceRate) chips += '<span class="lc-chip">' + data.acceptanceRate.toFixed(1) + '% acceptance</span>';
+      if(data.ranking) chips += '<span class="lc-chip">rank ' + data.ranking.toLocaleString() + '</span>';
+      chipsEl.innerHTML = chips;
+
+      statusEl.textContent = 'synced live from leetcode.com/u/' + username;
+    }catch(err){
+      showFallback();
+    }
+  })();
 </script>
 
 </body>
