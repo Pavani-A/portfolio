@@ -335,7 +335,7 @@
       <div class="stats-grid">
         <div class="stat"><div class="stat-num mono">40+</div><div class="stat-label">workflows automated</div></div>
         <div class="stat"><div class="stat-num mono">300+</div><div class="stat-label">UI tests engineered</div></div>
-        <div class="stat"><div class="stat-num mono">250+</div><div class="stat-label">LeetCode problems solved</div></div>
+        <div class="stat"><div class="stat-num mono">300+</div><div class="stat-label">LeetCode problems solved</div></div>
         <div class="stat"><div class="stat-num mono">9.71</div><div class="stat-label">CGPA</div></div>
       </div>
     </div>
@@ -362,8 +362,10 @@
           </div>
           <ul>
             <li>Won 1st place among all participants in the Sequoia AI Hackathon by designing an AI-driven system that automated 40+ user workflows.</li>
-            <li>Built and maintained a centralized validation framework spanning 8+ repositories, leading the migration from Selenium to Playwright.</li>
-            <li>Engineered automated test coverage for 30+ REST APIs and 300+ UI workflows, improving release reliability.</li>
+            <li>Contributed to B2B product features including Integrations, Manager and Broker Experiences, Work Groups, Impersonation, and role-based access workflows.</li>
+            <li>Automated monthly billing DAG updates and developed Stripe-based payment workflows for payment methods and user-controlled primary cards.</li>
+            <li>Built Wellbeing Bundle workflows covering benefit selection, payment, purchase, activation, and employee access.</li>
+            <li>Built and maintaineda centralized validation framework across 8+ repositories, migrated Selenium to Playwright, and automated 30+ REST APIs and 300+ UI workflows.</li>
             <li>Diagnosed and resolved production issues across multiple repositories as a key point of cross-team ownership.</li>
             <li>Implemented CI/CD pipelines with Jenkins and Docker; integrated AI tooling (Cursor, LLMs) into daily workflows.</li>
           </ul>
@@ -380,6 +382,37 @@
     </div>
 
     <div class="log">
+      <div class="entry type-proj reveal">
+  <div class="entry-dot"></div>
+  <div class="entry-meta"><span class="hash">lenny-agent</span><span class="kind">project</span></div>
+  <div class="entry-card">
+    <div class="entry-title-row">
+      <div class="entry-title">The Lenny Growth Assistant</div>
+    </div>
+
+    <div class="entry-stack">
+      <span class="chip">Python</span>
+      <span class="chip">FastAPI</span>
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">pgvector</span>
+      <span class="chip">RAG</span>
+      <span class="chip">Pi Coding Agent</span>
+      <span class="chip">Ollama</span>
+      <span class="chip">SSE</span>
+    </div>
+
+    <ul>
+      <li>Built a full-stack AI conversational assistant that provides grounded product and growth insights from Lenny's Podcast transcripts using RAG.</li>
+      <li>Engineered semantic retrieval with Ollama EmbeddingGemma, PostgreSQL, and pgvector, using cosine-distance search to retrieve relevant transcript chunks with source traceability.</li>
+      <li>Implemented Pi Coding Agent integration, persistent conversations, SSE streaming, multi-provider LLM support, and sandboxed Markdown/HTML artifact rendering.</li>
+    </ul>
+
+    <div class="entry-links">
+      <a href="https://github.com/Pavani-A/lenny-growth-assistant" target="_blank" rel="noopener">↗ view repository</a>
+      <a href="https://youtu.be/xvKUS9lT0CE" rel="noopener">▶ watch demo</a>
+    </div>
+  </div>
+</div>
       <div class="entry type-proj reveal">
         <div class="entry-dot"></div>
         <div class="entry-meta"><span class="hash">7b1e04f</span><span class="kind">project</span></div>
@@ -539,8 +572,8 @@
     <pre class="code-block"><span class="c">// skills.json</span>
 <span class="p">{</span>
   <span class="k">"languages"</span><span class="p">:</span> <span class="p">[</span><span class="s">"Python"</span><span class="p">,</span> <span class="s">"Java"</span><span class="p">,</span> <span class="s">"SQL"</span><span class="p">],</span>
-  <span class="k">"ai_ml"</span><span class="p">:</span> <span class="p">[</span><span class="s">"Machine Learning"</span><span class="p">,</span> <span class="s">"Deep Learning"</span><span class="p">,</span> <span class="s">"CNNs"</span><span class="p">,</span> <span class="s">"TensorFlow"</span><span class="p">,</span> <span class="s">"Keras"</span><span class="p">,</span> <span class="s">"scikit-learn"</span><span class="p">,</span> <span class="s">"Pandas"</span><span class="p">,</span> <span class="s">"NumPy"</span><span class="p">],</span>
-  <span class="k">"generative_ai"</span><span class="p">:</span> <span class="p">[</span><span class="s">"LLaMA"</span><span class="p">,</span> <span class="s">"LLMs"</span><span class="p">,</span> <span class="s">"Prompt Engineering"</span><span class="p">],</span>
+  <span class="k">"ai_ml"</span><span class="p">:</span> <span class="p">[</span><span class="s">"RAG"</span><span class="p">,</span> <span class="s">"LLMs"</span><span class="p">,</span> <span class="s">"LLaMA"</span><span class="p">,</span> <span class="s">"TensorFlow"</span><span class="p">,</span> <span class="s">"Keras"</span><span class="p">,</span> <span class="s">"scikit-learn"</span><span class="p">,</span> <span class="s">"Pandas"</span><span class="p">,</span> <span class="s">"NumPy"</span><span class="p">],</span>
+  <span class="k">"ai_infrastructure"</span><span class="p">:</span> <span class="p">[</span><span class="s">"pgvector"</span><span class="p">,</span> <span class="s">"Ollama"</span><span class="p">,</span> <span class="s">"Pi Coding Agent"</span><span class="p">,</span> <span class="s">"Embeddings"</span><span class="p">,</span> <span class="s">"Prompt Engineering"</span><span class="p">],</span>
   <span class="k">"backend"</span><span class="p">:</span> <span class="p">[</span><span class="s">"Django"</span><span class="p">,</span> <span class="s">"FastAPI"</span><span class="p">,</span> <span class="s">"Flask"</span><span class="p">,</span> <span class="s">"REST APIs"</span><span class="p">,</span> <span class="s">"Django REST Framework"</span><span class="p">,</span> <span class="s">"Spring Boot"</span><span class="p">,</span> <span class="s">"Hibernate/JPA"</span><span class="p">],</span>
   <span class="k">"frontend"</span><span class="p">:</span> <span class="p">[</span><span class="s">"React.js"</span><span class="p">,</span> <span class="s">"Next.js"</span><span class="p">,</span> <span class="s">"HTML"</span><span class="p">,</span> <span class="s">"CSS"</span><span class="p">,</span> <span class="s">"JavaScript"</span><span class="p">],</span>
   <span class="k">"databases"</span><span class="p">:</span> <span class="p">[</span><span class="s">"MySQL"</span><span class="p">,</span> <span class="s">"PostgreSQL"</span><span class="p">,</span> <span class="s">"MongoDB"</span><span class="p">],</span>
